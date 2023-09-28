@@ -24,4 +24,7 @@ func _physics_process(delta):
 		game_over()
 	
 func game_over():
+	get_tree().paused = true
+	await get_tree().create_timer(0.5).timeout
 	get_tree().reload_current_scene()
+	get_tree().paused = false
