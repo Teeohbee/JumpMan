@@ -737,14 +737,47 @@ layer_0/tile_data = PackedInt32Array(-5, 196608, 1, 65531, 262144, 1, 131067, 13
 
 [node name="Player" parent="." instance=ExtResource("2_df6wc")]
 
-[node name="Enemy" parent="." instance=ExtResource("4_qixg0")]
-position = Vector2(100, 20)
-
-[node name="Spike" parent="." instance=ExtResource("5_7jbpj")]
-position = Vector2(58, 4)
-
-[node name="Coin" parent="." instance=ExtResource("6_6ux4o")]
-position = Vector2(153, 53)
-
 [node name="EndFlag" parent="." instance=ExtResource("7_ipmu1")]
 position = Vector2(728, -14)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_qixg0")]
+position = Vector2(100, 20)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_qixg0")]
+position = Vector2(272, 50)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_qixg0")]
+position = Vector2(420, 75)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_qixg0")]
+position = Vector2(345, 0)
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike" parent="Spikes" groups=["Enemy"] instance=ExtResource("5_7jbpj")]
+position = Vector2(50, 4)
+
+[node name="Spike2" parent="Spikes" instance=ExtResource("5_7jbpj")]
+position = Vector2(565, 41)
+
+[node name="Spike3" parent="Spikes" instance=ExtResource("5_7jbpj")]
+position = Vector2(312, 22)
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("6_6ux4o")]
+position = Vector2(153, 53)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_6ux4o")]
+position = Vector2(380, 55)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_6ux4o")]
+position = Vector2(470, 53)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("6_6ux4o")]
+position = Vector2(654, -7)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("6_6ux4o")]
+position = Vector2(230, 30)
