@@ -6,6 +6,9 @@ var gravity = 500.0
 var score: int = 0
 @onready var score_text = get_node("CanvasLayer/ScoreText")
 
+func _ready():
+	get_node( "AnimatedSprite2D" ).set_flip_h( true )
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta

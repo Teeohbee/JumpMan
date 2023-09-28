@@ -1,10 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgyug807w766s"]
+[gd_scene load_steps=7 format=3 uid="uid://dgyug807w766s"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_bjemg"]
 [ext_resource type="Texture2D" uid="uid://dpfw6ck4mow1p" path="res://Sprites/Characters/character_0024.png" id="2_ce6sp"]
+[ext_resource type="Texture2D" uid="uid://cmuj56kflday4" path="res://Sprites/Characters/character_0025.png" id="3_14ypg"]
+[ext_resource type="Texture2D" uid="uid://b7v77tpl04fsy" path="res://Sprites/Characters/character_0026.png" id="4_m6228"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vh073"]
 radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03tqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ce6sp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_14ypg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m6228")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_14ypg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="Area2D"]
 position = Vector2(44, 0)
@@ -12,10 +34,11 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_bjemg")
 move_direction = Vector2(0, -50)
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_ce6sp")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vh073")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_03tqc")
+autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
