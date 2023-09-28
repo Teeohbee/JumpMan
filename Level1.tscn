@@ -1,9 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://285tlqb6fbvv"]
+[gd_scene load_steps=9 format=3 uid="uid://285tlqb6fbvv"]
 
 [ext_resource type="Texture2D" uid="uid://biwond464pw3f" path="res://Sprites/Tiles/tiles_packed.png" id="1_kthgv"]
-[ext_resource type="Texture2D" uid="uid://bqb4j84403j2a" path="res://Sprites/Characters/character_0000.png" id="2_7gsv3"]
-[ext_resource type="Script" path="res://Player.gd" id="2_ihjgl"]
-[ext_resource type="Texture2D" uid="uid://2k3iywmsqila" path="res://Sprites/Characters/character_0001.png" id="4_b1ydn"]
+[ext_resource type="PackedScene" uid="uid://dah2cf0q0wv31" path="res://Player.tscn" id="2_df6wc"]
 [ext_resource type="PackedScene" uid="uid://dgyug807w766s" path="res://Enemy.tscn" id="4_qixg0"]
 [ext_resource type="PackedScene" uid="uid://b67dgeb4spiqy" path="res://Spike.tscn" id="5_7jbpj"]
 [ext_resource type="PackedScene" uid="uid://btyvkjef6t72e" path="res://Coin.tscn" id="6_6ux4o"]
@@ -729,28 +727,6 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tktp5")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wjjdd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_7gsv3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_b1ydn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbg0b"]
-height = 24.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_uc57t"]
-font_size = 48
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -759,37 +735,16 @@ tile_set = SubResource("TileSet_c8p5y")
 format = 2
 layer_0/tile_data = PackedInt32Array(-5, 196608, 1, 65531, 262144, 1, 131067, 131072, 6, 196603, 131072, 6, 262139, 131072, 6, 262140, 131072, 6, 262141, 131072, 6, 196605, 262144, 1, 131069, 196608, 6, 65533, 196608, 1, 65532, 131072, 1, 131068, 131072, 6, 196604, 131072, 6, 196606, 131072, 1, 131072, 131072, 1, 196607, 131072, 1, 131073, 196608, 1, 262142, 131072, 6, 262143, 131072, 6, 196608, 131072, 6, 196609, 196608, 6, 65540, 786432, 0, 131076, 786432, 1, 196612, 786432, 2, 262148, 786432, 3, 65539, 917504, 0, 65541, 983040, 0, 327676, 131072, 6, 327677, 131072, 6, 327678, 131072, 6, 327679, 131072, 6, 262144, 131072, 6, 262145, 196608, 6, 327675, 131072, 6, 8, 786432, 0, 65544, 786432, 1, 131080, 786432, 2, 7, 917504, 0, 9, 983040, 0, 196616, 786432, 2, 262152, 786432, 3, 131083, 393216, 0, 131084, 393216, 0, 131085, 393216, 0, 131088, 393216, 0, 131089, 393216, 0, 131090, 393216, 0, 131093, 983040, 5, 196629, 983040, 5, 262165, 983040, 6, 65557, 851968, 4, 65558, 851968, 6, 65559, 851968, 6, 65560, 851968, 6, 131098, 983040, 5, -131043, 851968, 4, -131042, 851968, 6, -131041, 851968, 6, 65561, 917504, 4, 131097, 983040, 5, -131040, 917504, 4, -65504, 983040, 5, 32, 983040, 5, 65568, 983040, 5, 131104, 983040, 5, 196640, 983040, 5, 262176, 983040, 6, -6, 131072, 1, -7, 131072, 1, -8, 131072, 1, -9, 131072, 1, -10, 65536, 1, 65527, 131072, 6, 65528, 131072, 6, 65529, 131072, 6, 65530, 131072, 6, 131066, 131072, 6, 196602, 131072, 6, 131065, 131072, 6, 196601, 131072, 6, 196600, 131072, 6, 131064, 131072, 6, 131063, 131072, 6, 196599, 131072, 6, 262135, 131072, 6, 262136, 131072, 6, 262137, 131072, 6, 262138, 131072, 6, 327671, 131072, 6, 327672, 131072, 6, 327673, 131072, 6, 327674, 131072, 6, 65526, 65536, 6, 131062, 65536, 6, 196598, 65536, 6, 262134, 65536, 6, 327670, 65536, 6, 196633, 851968, 5, 196634, 917504, 5, 26, 983040, 4, 65562, 983040, 5, -65507, 983040, 5, 29, 983040, 5, 65565, 983040, 5, 131101, 983040, 5, 196637, 983040, 5, 262173, 983040, 5)
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-scale = Vector2(0.8, 0.8)
-script = ExtResource("2_ihjgl")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_wjjdd")
-autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CapsuleShape2D_wbg0b")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="ScoreText" type="Label" parent="Player/CanvasLayer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 205.0
-offset_bottom = 95.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_uc57t")
+[node name="Player" parent="." instance=ExtResource("2_df6wc")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_qixg0")]
 position = Vector2(100, 20)
 
 [node name="Spike" parent="." instance=ExtResource("5_7jbpj")]
+position = Vector2(58, 4)
 
 [node name="Coin" parent="." instance=ExtResource("6_6ux4o")]
+position = Vector2(153, 53)
 
 [node name="EndFlag" parent="." instance=ExtResource("7_ipmu1")]
 position = Vector2(728, -14)
